@@ -9,13 +9,13 @@ Stein IAS' Web Development Template
 	- Grunt
 	- etc
 - To install the gems we do 'gem install bundler' the install the bundle 'bundle install'
-- 'npm install' to install everything
+- 'npm install' to install everything (mighe need sudo)
 - 'grunt' to run it
 
 
 ## What SASS goes where?
 - The modules directory is reserved for Sass code that doesn't cause Sass to actually output CSS. Things like mixin declarations, functions, and variables.
-- The partials directory is where most of the CSS is constructed. For larger project break down into smaller files.
+- The partials directory is where most of the CSS is constructed. The base styles are predefined at top level and then deeper folders are created as per your project requirements.
 
  
 ## Need to sort
@@ -32,5 +32,6 @@ Stein IAS' Web Development Template
 - prefixer
 - uglify
 - Gitignore
+- Build/Deployments tasks?
 
 
