@@ -1,7 +1,7 @@
-NOAH
+Noah
 ====
 
-Stein IAS Web Development Template
+Stein IAS' Web Development Template
 
 ## Set up
 - Need to ensure you have everything on your machine
