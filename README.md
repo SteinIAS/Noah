@@ -22,6 +22,7 @@ Stein IAS' Web Development Template
 - Colour names? - http://chir.ag/projects/name-that-color/ - sort order
 - rems or ems for fonts?
 - Compress images - imagemin
+- Automatic creation of responsive images? - https://github.com/andismith/grunt-responsive-images and possibly https://github.com/smaxtastic/grunt-responsive-images-extender (work in progress)
 - Smaller SASS stylesheets or one with stuff in eg variables (breakpoints, colours)
 - prefixer
 - uglify
