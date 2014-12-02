@@ -19,14 +19,8 @@ Stein IAS' Web Development Template
 
  
 ## Need to sort
-- Folder/file structure?
-- Colour names? - http://chir.ag/projects/name-that-color/
+- Colour names? - http://chir.ag/projects/name-that-color/ - sort order
 - rems or ems for fonts?
-- Clearfix needed?
-- Sass-Globbing - like the sound but how does order work
-- Grid I'm more than happy with Susy, vote needed.
-- Breakpoint gem or use own mixin?
-- Media queries in multiple css rules or one class one markup
 - Compress images - imagemin
 - Smaller SASS stylesheets or one with stuff in eg variables (breakpoints, colours)
 - prefixer

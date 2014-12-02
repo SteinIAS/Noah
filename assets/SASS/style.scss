@@ -6,21 +6,19 @@
 
 /* MODULES
 ------------------------------------------ */
-
 @import "modules/_variables";
 @import "modules/_functions";
 @import "modules/_mixins";
 @import "modules/_vendor";
-	
+
 
 /* BASE PARTIALS
 ------------------------------------------ */
-
-@import "partials/_reset";
-@import "partials/_base";
-@import "partials/_buttons";
-@import "partials/_forms";
-@import "partials/_grid";
+@import "partials/base/_reset";
+@import "partials/base/_base";
+@import "partials/base/_buttons";
+@import "partials/base/_forms";
+@import "partials/base/_grid";
 
 @import "partials/components/*"
 	
