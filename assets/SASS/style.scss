@@ -9,11 +9,11 @@
 @import "modules/_variables";
 @import "modules/_functions";
 @import "modules/_mixins";
-@import "modules/_vendor";
 
 
 /* BASE PARTIALS
 ------------------------------------------ */
+@import "partials/base/_vendor";
 @import "partials/base/_reset";
 @import "partials/base/_base";
 @import "partials/base/_buttons";
