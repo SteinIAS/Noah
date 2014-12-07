@@ -20,8 +20,6 @@ Stein IAS' Web Development Template
  
 ## Need to sort
 - Automatic creation of responsive images? - https://github.com/andismith/grunt-responsive-images and possibly https://github.com/smaxtastic/grunt-responsive-images-extender (work in progress)
-- prefixer
-- uglify
 - Gitignore
 - Build/Deployments tasks?
 
