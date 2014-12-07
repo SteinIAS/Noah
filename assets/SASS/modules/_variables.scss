@@ -1,28 +1,28 @@
 /* COLOURS - http://chir.ag/projects/name-that-color/
 ------------------------------------------ */
 
-$standard: #333333;
-$header: #141414;
-$link: #d8544b;
-$link-hover: #e2766f;
+$col-mine-shaft: #333333;
+$col-red-damask: #d8544b;
+$col-sunglo: #e2766f;
 
-	
-/* TYPOGRAPHY
------------------------------------------- */
+$col-standard: $col-mine-shaft;
+$col-link: $col-red-damask;
+$col-link-hover: $col-sunglo;
+
 
 /* WEIGHTS
 ------------------------------------------ */
 
-$light: 100;
-$regular: 400;
-$bold: 600;
-$header-weight: 700;
+$weight-light: 100;
+$weight-regular: 400;
+$weight-bold: 600;
+
 
 /* BASE FONTS
 ------------------------------------------ */
 
 $base-font-family: Cambria, Georgia, serif;
-$base-font-weight: $regular;
+$base-font-weight: $weight-regular;
 $base-font-size: 1em;
 $base-line-height: 1.4;
 

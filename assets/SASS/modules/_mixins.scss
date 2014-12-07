@@ -57,3 +57,12 @@
 	background-image: linear-gradient(transparent, transparent), url($img);
 	background-size: $size;
 }
+
+
+/* PX TO REM
+------------------------------------------ */
+
+@mixin font-size($size) {
+  font-size: $size; //Fallback in px
+  font-size: calculateRem($size);
+}

@@ -11,7 +11,7 @@ html {
 }
 
 body {
-	color: $standard;
+	color: $col-standard;
 	font-family: $base-font-family;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
@@ -38,9 +38,7 @@ body {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-	color: $header;
 	font-family: $header-font-family;
-	font-weight: $header-weight;
 	margin:1em 0 0.35em 0;
 }
 
@@ -97,26 +95,12 @@ img, object, embed {
 	max-width: 100%;
 }	
 
-blockquote {
-	background: #d8544b;
-	color: #ffffff;
-	font-size: 1.1em;
-	font-style: italic;
-	margin: 0 0 1.250em 1.250em;
-	padding: 0.625em 1.250em 1.250em;
-	p {
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-}
-
 
 /* LINKS
 ------------------------------------------ */
 
 a {
-	color: $link;
+	color: $col-link;
 	cursor: pointer;
 	text-decoration:none;
 	outline: 0;
@@ -124,7 +108,7 @@ a {
 
 	}
 	&:hover {
-		color: $link-hover;
+		color: $col-link-hover;
 	}
 	&:active {
 		
@@ -142,6 +126,14 @@ a {
 
 /* BUILD ELEMENTS
 ------------------------------------------ */
+
+.hide {
+	display: none;
+}
+
+.center-align {
+	text-align: center;
+}
 
 /**
  * For modern browsers
@@ -168,13 +160,5 @@ a {
  */
 .cf {
     *zoom: 1;
-}
-
-.hide {
-	display: none;
-}
-
-.center-align {
-	text-align: center;
 }
 
