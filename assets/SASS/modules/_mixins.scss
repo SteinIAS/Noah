@@ -12,38 +12,6 @@
 		@media print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) { @content; }
 	}
 }
-	
-	
-/* BORDER READIUS
------------------------------------------- */
-
-@mixin border-radius($radius) {
-  	-moz-border-radius: $radius;
-  		-webkit-border-radius: $radius;
-  			border-radius: $radius;
-}
-
-
-/* TRANSITION
------------------------------------------- */
-
-@mixin transition ($which,$speed,$method,$delay) {
-	-webkit-transition:$which $speed $method $delay;
-		-moz-transition: $which $speed $method $delay;
-			-o-transition: $which $speed $method $delay;
-					transition: $which $speed $method $delay;
-}
-
-
-/* ANIMATION
------------------------------------------- */	
-
-@mixin animation ($which,$speed,$method,$delay) {
-	-webkit-animation:$which $speed $method $delay;
-		-moz-animation: $which $speed $method $delay;
-			-o-animation: $which $speed $method $delay;
-					animation: $which $speed $method $delay;
-}
 
 
 /* SVG BG IMG FALLBACK
