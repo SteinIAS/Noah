@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 		uglify: {
 			my_target: {
 				files: {
-					'../site/js/script.js': '../site/js/script.js'
+					'../site/js/script.js': '../site/js/script.min.js'
 				}
 			}
 		},
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 		    },
 		    scripts: {
 		    	files: 'js/{,*/}*.js',
-		        tasks: ['jshint', 'concat', 'uglify'],
+		        tasks: ['jshint', 'concat'],
 		        options: {
 		        	style: 'compressed',
 		            spawn: false,
@@ -90,6 +90,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-autoprefixer');
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('deploy', ['concat', 'imagemin', 'compass']);
+    grunt.registerTask('deploy', ['concat', 'uglify', 'imagemin', 'compass']);
 
 };
