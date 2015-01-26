@@ -4,6 +4,10 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         concat: {
+        	dev: {
+		      src: ['js/plugins.js', 'js/script.js', 'js/dev.js'],
+		      dest: '../site/js/script.js'
+		    },
             dist: {
 		      src: ['js/plugins.js', 'js/script.js'],
 		      dest: '../site/js/script.js'
@@ -17,7 +21,7 @@ module.exports = function(grunt) {
 		uglify: {
 			my_target: {
 				files: {
-					'../site/js/script.js': '../site/js/script.min.js'
+					'../site/js/script.js': '../site/js/script.js'
 				}
 			}
 		},
@@ -63,7 +67,7 @@ module.exports = function(grunt) {
 		    },
 		    scripts: {
 		    	files: 'js/{,*/}*.js',
-		        tasks: ['jshint', 'concat'],
+		        tasks: ['jshint', 'concat:dev'],
 		        options: {
 		        	style: 'compressed',
 		            spawn: false,
@@ -90,6 +94,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-autoprefixer');
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('deploy', ['concat', 'uglify', 'imagemin', 'compass', 'autoprefixer']);
+    grunt.registerTask('deploy', ['concat:dist', 'uglify', 'imagemin', 'compass', 'autoprefixer']);
 
 };
