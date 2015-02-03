@@ -18,9 +18,14 @@ Stein IAS' Web Development Template
 - The partials directory is where most of the CSS is constructed. The base styles are predefined at top level and then deeper folders are created as per your project requirements.
 
  
-## Need to sort
-- Automatic creation of responsive images? - https://github.com/andismith/grunt-responsive-images and possibly https://github.com/smaxtastic/grunt-responsive-images-extender (work in progress)
-- Gitignore
-- Build/Deployments tasks?
+## Naming the folders
+We currently have two folders assets and site. 
+To help assist with the BE implementation we can rename the folders to match the project e.g.
+
+- JNPR.Assets
+- JNPR.Site
+
+
+## To do list
 
 

@@ -1,28 +1,44 @@
 module.exports = function(grunt) {
 
+	var paths = {
+		assets: {
+			js: 'js/',
+			css: 'SASS/'
+		},
+		output: {
+			js: '../site/scripts/',
+			css: '../site/css/',
+			img: '../site/img/'
+		}
+	};
+
+	var uglifyFiles = {};
+	uglifyFiles[paths.output.js + 'script.js'] = [paths.output.js + 'script.js'];
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
         concat: {
         	dev: {
-		      src: ['js/plugins.js', 'js/script.js', 'js/dev.js'],
-		      dest: '../site/js/script.js'
+		      src: [paths.assets.js + 'plugins.js', paths.assets.js + 'script.js', paths.assets.js + 'dev.js'],
+		      dest: paths.output.js + 'script.js'
 		    },
             dist: {
-		      src: ['js/plugins.js', 'js/script.js'],
-		      dest: '../site/js/script.js'
+		      src: [paths.assets.js + 'plugins.js', paths.assets.js + 'script.js'],
+		      dest: paths.output.js + 'script.js'
 		    }
         },
         
         jshint: {
-		  files: ['js/*.js'],
+		  files: [paths.assets.js + '*.js'],
 		},
 
 		uglify: {
+			options: {
+				mangle: false
+			},
 			my_target: {
-				files: {
-					'../site/js/script.js': '../site/js/script.js'
-				}
+				files: uglifyFiles
 			}
 		},
 		
@@ -33,9 +49,9 @@ module.exports = function(grunt) {
 			    },
 		        files: [{
 		            expand: true,
-		            cwd: '../site/img/',
+		            cwd: paths.output.img,
 		            src: ['**/*.{png,jpg,gif}'],
-		            dest: '../site/img/'
+		            dest: paths.output.img
 		        }]
 		    }
 		},
@@ -44,7 +60,7 @@ module.exports = function(grunt) {
 			dist: {
 	        	options: {
 	        		sassDir: 'SASS',
-	        		cssDir: '../site/css/',
+	        		cssDir: paths.output.css,
 	        		environment: 'production',
 	        		outputStyle: 'compressed'
 	        	},
@@ -56,8 +72,8 @@ module.exports = function(grunt) {
 				options: {
 					browsers: ['last 2 versions', 'ie 8', 'ie 9']
 				},
-				src: '../site/css/style.css',
-				dest: '../site/css/style.css'
+				src: paths.output.css + 'style.css',
+				dest: paths.output.css +'style.css'
 		    },
 		},
 		
@@ -66,7 +82,7 @@ module.exports = function(grunt) {
 		        livereload: true,
 		    },
 		    scripts: {
-		    	files: 'js/{,*/}*.js',
+		    	files: paths.assets.js + '{,*/}*.js',
 		        tasks: ['jshint', 'concat:dev'],
 		        options: {
 		        	style: 'compressed',
@@ -74,7 +90,7 @@ module.exports = function(grunt) {
 		        },
 		    },
 		    sass: {
-			    files: ['SASS/**/*.{scss,sass}'],
+			    files: [paths.assets.css + '**/*.{scss,sass}'],
 			    tasks: ['compass', 'autoprefixer'],
 			    options: {
 			        spawn: false,
