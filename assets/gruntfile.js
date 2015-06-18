@@ -65,6 +65,15 @@ module.exports = function(grunt) {
 	        		outputStyle: 'compressed'
 	        	},
 	        },
+	        force: {
+	        	options: {
+		        	force: true,
+		        	sassDir: 'SASS',
+	        		cssDir: paths.output.css,
+	        		environment: 'production',
+	        		outputStyle: 'compressed'
+	        	}
+	        }
 	    },
 	    
 	    autoprefixer: {
@@ -109,7 +118,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-autoprefixer');
 
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['jshint', 'concat:dev', 'compass:force', 'autoprefixer', 'watch']);
     grunt.registerTask('deploy', ['concat:dist', 'uglify', 'imagemin', 'compass', 'autoprefixer']);
 
 };
