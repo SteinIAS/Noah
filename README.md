@@ -5,12 +5,12 @@ Stein IAS' Web Development Template
 
 ## Set up
 - Need to ensure you have everything on your machine
-	- Ruby 
-	- Grunt
-	- etc
+    - Ruby 
+    - etc
+- Run `npm install --global gulp`
 - To install the gems we do 'gem install bundler' the install the bundle 'bundle install'
-- 'npm install' to install everything (mighe need sudo)
-- 'grunt' to run it
+- 'npm install' to install everything (might need sudo)
+- `gulp` to run it
 
 
 ## What SASS goes where?
