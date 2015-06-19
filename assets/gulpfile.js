@@ -30,9 +30,26 @@ gulp.task('styles:dev', function () {
 			.pipe(sass({
 				outputStyle: 'expanded'
 			}))
+			.pipe(sass().on('error', sass.logError))
 			.pipe(autoprefix('last 2 version', 'ie9'))
 		.pipe(sourcemaps.write())
-		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest('../site/css'))
+		.pipe(browserSync.stream());
+});
+
+gulp.task('styles:deploy', function () {
+	gulp.src('./sass/**/*.scss')
+		.pipe(cssGlobbing({
+			extensions: ['.css', '.scss']
+		}))
+		.pipe(sourcemaps.init())
+			.pipe(sass({
+				outputStyle: 'expanded'
+			}))
+			.pipe(sass().on('error', sass.logError))
+			.pipe(autoprefix('last 2 version', 'ie9'))
+		.pipe(sourcemaps.write())
+		.pipe(minifyCss({compatibility: 'ie8'}))
 		.pipe(gulp.dest('../site/css'))
 		.pipe(browserSync.stream());
 });
@@ -63,3 +80,5 @@ gulp.task('default', ['scripts:dev', 'styles:dev'], function () {
 	gulp.watch(paths.assets.html + '**/*.html', ['templates']);
 
 });
+
+gulp.task('deploy', ['styles:deploy'], function(){});
