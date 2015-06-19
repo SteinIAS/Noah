@@ -1,0 +1,20 @@
+{
+  "name": "Noah",
+  "version": "0.0.1",
+  "homepage": "https://github.com/SteinIAS/Noah",
+  "authors": [
+    "Jordan Lane <jordan.lane@steinias.com>"
+  ],
+  "description": "Stein IAS' Web Development Template",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "susy": "~2.2.3"
+  }
+}

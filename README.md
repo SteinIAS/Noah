@@ -5,11 +5,10 @@ Stein IAS' Web Development Template
 
 ## Set up
 - Need to ensure you have everything on your machine
-    - Ruby 
-    - etc
 - Run `npm install --global gulp`
-- To install the gems we do 'gem install bundler' the install the bundle 'bundle install'
-- 'npm install' to install everything (might need sudo)
+- Run `npm install -g bower`
+- Run `bower install`
+- Run `npm install` to install everything (might need sudo)
 - `gulp` to run it
 
 
