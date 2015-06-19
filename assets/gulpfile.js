@@ -6,6 +6,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var minifyCss = require('gulp-minify-css');
 var concat = require('gulp-concat');
 var browserSync = require('browser-sync').create();
+var autoprefix = require('gulp-autoprefixer');
 
 var paths = {
 	assets: {
@@ -29,6 +30,7 @@ gulp.task('styles', function () {
 			.pipe(sass({
 				outputStyle: 'expanded'
 			}))
+			.pipe(autoprefix('last 2 version', 'ie9'))
 		.pipe(sourcemaps.write())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(gulp.dest('../site/css'))
@@ -60,10 +62,4 @@ gulp.task('default', function () {
 	// Watch .html files
 	gulp.watch(paths.assets.html + '**/*.html', ['templates']);
 
-});
-
-gulp.task('lint', function() {
-	return gulp.src('js/script.js')
-	    .pipe(jshint())
-    	.pipe(jshint.reporter('jshint-stylish'));
 });
