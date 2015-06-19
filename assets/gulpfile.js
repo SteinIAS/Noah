@@ -21,7 +21,7 @@ var paths = {
 	}
 };
 
-gulp.task('styles', function () {
+gulp.task('styles:dev', function () {
 	gulp.src('./sass/**/*.scss')
 		.pipe(cssGlobbing({
 			extensions: ['.css', '.scss']
@@ -51,14 +51,14 @@ gulp.task('templates', function() {
 	return browserSync.reload();
 });
 
-gulp.task('default', function () {
+gulp.task('default', ['scripts:dev', 'styles:dev'], function () {
 	browserSync.init([paths.output.js + '**/*.js'], {
         server: "../site"
     });
 	// Watch .js files
 	gulp.watch(paths.assets.js + '**/*.js', ['scripts:dev']);
 	// Watch .scss files
-	gulp.watch(paths.assets.css + '/**/*.scss', ['styles']);
+	gulp.watch(paths.assets.css + '/**/*.scss', ['styles:dev']);
 	// Watch .html files
 	gulp.watch(paths.assets.html + '**/*.html', ['templates']);
 
