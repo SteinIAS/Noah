@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
 var cssGlobbing = require('gulp-css-globbing');
+var sourcemaps = require('gulp-sourcemaps');
 
 var paths = {
 	assets: {
@@ -20,7 +21,13 @@ gulp.task('styles', function () {
 		.pipe(cssGlobbing({
 			extensions: ['.css', '.scss']
 		}))
+		.pipe(sourcemaps.init())
+			.pipe(sass({
+				outputStyle: 'expanded'
+			}))
+		.pipe(sourcemaps.write())
 		.pipe(sass().on('error', sass.logError))
+
 		.pipe(gulp.dest('../site/css'));
 });
 
