@@ -2,6 +2,7 @@
   "name": "Noah",
   "version": "0.1.0",
   "devDependencies": {
+    "browser-sync": "^2.7.12",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.5.2",
     "gulp-css-globbing": "^0.1.8",
