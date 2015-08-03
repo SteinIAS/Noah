@@ -140,7 +140,7 @@ gulp.task('default', ['scripts:dev', 'styles:dev'], function () {
 	// Watch .scss files
 	gulp.watch(paths.assets.css + '/**/*.scss', ['styles:dev']);
 	// Watch .html files
-	gulp.watch(paths.assets.html + '**/*.html', ['templates']);
+	gulp.watch(paths.assets.html + '**/*.{php,html}', ['templates']);
 
 });
 
