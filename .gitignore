@@ -3,3 +3,8 @@
 
 /assets/.sass-cache
 /assets/.sass-cache/*
+assets/bower_components/
+*/css/*
+!*/css/vendor/
+*/scripts/*
+!*/scripts/vendor/
