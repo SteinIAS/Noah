@@ -15,18 +15,18 @@ var notify = require('gulp-notify');
 var paths = {
 	assets: {
 		js: 'js/',
-		css: 'SASS/',
-		html: '../site/'
+		css: './SASS/',
+		html: '../TenTen.Web/'
 	},
 	output: {
-		js: '../site/scripts/',
-		css: '../site/css/',
-		img: '../site/img/'
+		js: '../TenTen.Web/scripts/',
+		css: '../TenTen.Web/css/',
+		img: '../TenTen.Web/img/'
 	}
 };
 
 // If you are running the site with a different webserver change this to the URL of the site e.g. localhost:8888
-var proxy = '';
+var proxy = 'localhost:25041';
 
 gulp.task('styles:dev', function () {
 	gulp.src(paths.assets.css + '**/*.scss')
@@ -39,7 +39,9 @@ gulp.task('styles:dev', function () {
 			}))
 			.on('error', notify.onError())
 			.pipe(sass().on('error', sass.logError))
-			.pipe(autoprefix('last 2 version', 'ie9'))
+			.pipe(autoprefix({
+				browsers: ['last 2 version', 'ie 9']
+			}))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(paths.output.css))
 		.pipe(browserSync.stream())
@@ -60,7 +62,9 @@ gulp.task('styles:deploy', function () {
 			}))
 			.on('error', notify.onError())
 			.pipe(sass().on('error', sass.logError))
-			.pipe(autoprefix('last 2 version', 'ie9'))
+			.pipe(autoprefix({
+				browsers: ['last 2 version', 'ie 9']
+			}))
 		.pipe(sourcemaps.write())
 		.pipe(minifyCss({compatibility: 'ie8'}))
 		.pipe(gulp.dest(paths.output.css))
@@ -131,7 +135,7 @@ gulp.task('default', ['scripts:dev', 'styles:dev'], function () {
 	if(proxy !== '') {
 		settings.proxy = proxy;
 	} else {
-		settings.server = '../site';
+		settings.server = '../TenTen.Web';
 	}
 	browserSync.init([paths.output.js + '**/*.js'], settings);
 
@@ -140,7 +144,7 @@ gulp.task('default', ['scripts:dev', 'styles:dev'], function () {
 	// Watch .scss files
 	gulp.watch(paths.assets.css + '/**/*.scss', ['styles:dev']);
 	// Watch .html files
-	gulp.watch(paths.assets.html + '**/*.{php,html}', ['templates']);
+	gulp.watch(paths.assets.html + '**/*.{php,html,aspx}', ['templates']);
 
 });
 
