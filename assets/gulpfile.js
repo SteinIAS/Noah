@@ -15,18 +15,18 @@ var notify = require('gulp-notify');
 var paths = {
 	assets: {
 		js: 'js/',
-		css: './SASS/',
-		html: '../TenTen.Web/'
+		css: 'SASS/',
+		html: '../site/'
 	},
 	output: {
-		js: '../TenTen.Web/scripts/',
-		css: '../TenTen.Web/css/',
-		img: '../TenTen.Web/img/'
+		js: '../site/scripts/',
+		css: '../site/css/',
+		img: '../site/img/'
 	}
 };
 
 // If you are running the site with a different webserver change this to the URL of the site e.g. localhost:8888
-var proxy = 'localhost:25041';
+var proxy = '';
 
 gulp.task('styles:dev', function () {
 	gulp.src(paths.assets.css + '**/*.scss')
@@ -135,7 +135,7 @@ gulp.task('default', ['scripts:dev', 'styles:dev'], function () {
 	if(proxy !== '') {
 		settings.proxy = proxy;
 	} else {
-		settings.server = '../TenTen.Web';
+		settings.server = '../site';
 	}
 	browserSync.init([paths.output.js + '**/*.js'], settings);
 
@@ -144,7 +144,7 @@ gulp.task('default', ['scripts:dev', 'styles:dev'], function () {
 	// Watch .scss files
 	gulp.watch(paths.assets.css + '/**/*.scss', ['styles:dev']);
 	// Watch .html files
-	gulp.watch(paths.assets.html + '**/*.{php,html,aspx}', ['templates']);
+	gulp.watch(paths.assets.html + '**/*.{php,html}', ['templates']);
 
 });
 
