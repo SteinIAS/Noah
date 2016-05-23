@@ -112,7 +112,7 @@ gulp.task('scripts:deploy', function() {
 		.pipe(gulp.dest(paths.output.js))
 		.pipe(notify({
 			title: 'Noah',
-			message: 'Scripts delpoyment task complete.'
+			message: 'Scripts deployment task complete.'
 		}));
 });
 
