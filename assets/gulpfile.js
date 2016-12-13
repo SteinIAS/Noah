@@ -3,7 +3,7 @@ var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
 var cssGlobbing = require('gulp-css-globbing');
 var sourcemaps = require('gulp-sourcemaps');
-var minifyCss = require('gulp-minify-css');
+var cleanCss = require('gulp-clean-css');
 var concat = require('gulp-concat');
 var browserSync = require('browser-sync').create();
 var autoprefix = require('gulp-autoprefixer');
@@ -66,7 +66,7 @@ gulp.task('styles:deploy', function () {
 				browsers: ['last 2 version', 'ie 9']
 			}))
 		.pipe(sourcemaps.write())
-		.pipe(minifyCss({compatibility: 'ie8'}))
+		.pipe(cleanCss({compatibility: 'ie8'}))
 		.pipe(gulp.dest(paths.output.css))
 		.pipe(browserSync.stream())
 		.pipe(notify({
