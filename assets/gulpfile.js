@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
-var cssGlobbing = require('gulp-css-globbing');
+var cssGlobbing = require('gulp-sass-glob');
 var sourcemaps = require('gulp-sourcemaps');
 var cleanCss = require('gulp-clean-css');
 var concat = require('gulp-concat');
@@ -30,9 +30,7 @@ var proxy = '';
 
 gulp.task('styles:dev', function () {
 	gulp.src(paths.assets.css + '**/*.scss')
-		.pipe(cssGlobbing({
-			extensions: ['.css', '.scss']
-		}))
+		.pipe(cssGlobbing())
 		.pipe(sourcemaps.init())
 			.pipe(sass({
 				outputStyle: 'expanded'
@@ -53,9 +51,9 @@ gulp.task('styles:dev', function () {
 
 gulp.task('styles:deploy', function () {
 	gulp.src('./sass/**/*.scss')
-		.pipe(cssGlobbing({
-			extensions: ['.css', '.scss']
-		}))
+		// .pipe(cssGlobbing({
+		// 	extensions: ['.css', '.scss']
+		// }))
 		.pipe(sourcemaps.init())
 			.pipe(sass({
 				outputStyle: 'expanded'
