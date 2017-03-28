@@ -9,7 +9,6 @@ var browserSync = require('browser-sync').create();
 var autoprefix = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
-var pngquant = require('imagemin-pngquant');
 var notify = require('gulp-notify');
 
 var paths = {
@@ -51,9 +50,9 @@ gulp.task('styles:dev', function () {
 
 gulp.task('styles:deploy', function () {
 	gulp.src('./sass/**/*.scss')
-		// .pipe(cssGlobbing({
-		// 	extensions: ['.css', '.scss']
-		// }))
+		.pipe(cssGlobbing({
+			extensions: ['.css', '.scss']
+		}))
 		.pipe(sourcemaps.init())
 			.pipe(sass({
 				outputStyle: 'expanded'
