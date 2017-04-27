@@ -10,6 +10,7 @@ var autoprefix = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var notify = require('gulp-notify');
+var svgSymbols = require('gulp-svg-symbols');
 
 var paths = {
 	assets: {
@@ -26,6 +27,13 @@ var paths = {
 
 // If you are running the site with a different webserver change this to the URL of the site e.g. localhost:8888
 var proxy = '';
+
+gulp.task('sprites', function() {
+	return gulp.src(paths.output.img + '*.svg').pipe(svgSymbols({
+		templates: ['default-svg'],
+		svgClassname: 'svg-icon-lib'
+	})).pipe(gulp.dest(paths.output.img + '/svgsprite/'));
+});
 
 gulp.task('styles:dev', function () {
 	gulp.src(paths.assets.css + '**/*.scss')
@@ -127,7 +135,7 @@ gulp.task('images', function() {
 	}));
 });
 
-gulp.task('default', ['scripts:dev', 'styles:dev'], function () {
+gulp.task('default', ['scripts:dev', 'styles:dev', 'sprites'], function () {
 	var settings = {};
 	if(proxy !== '') {
 		settings.proxy = proxy;
@@ -136,6 +144,8 @@ gulp.task('default', ['scripts:dev', 'styles:dev'], function () {
 	}
 	browserSync.init([paths.output.js + '**/*.js'], settings);
 
+	// Watch Img folder for SVGs
+	gulp.watch(paths.output.img + '*.svg', ['sprites']);
 	// Watch .js files
 	gulp.watch(paths.assets.js + '**/*.js', ['scripts:dev']);
 	// Watch .scss files
