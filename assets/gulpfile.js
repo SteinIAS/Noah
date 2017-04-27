@@ -145,7 +145,7 @@ gulp.task('default', ['scripts:dev', 'styles:dev', 'sprites'], function () {
 	browserSync.init([paths.output.js + '**/*.js'], settings);
 
 	// Watch Img folder for SVGs
-	gulp.watch(paths.output.img + '*.svg', ['sprites']);
+    gulp.watch(paths.output.img + '*.svg', ['sprites']);
 	// Watch .js files
 	gulp.watch(paths.assets.js + '**/*.js', ['scripts:dev']);
 	// Watch .scss files
@@ -155,4 +155,4 @@ gulp.task('default', ['scripts:dev', 'styles:dev', 'sprites'], function () {
 
 });
 
-gulp.task('deploy', ['scripts:deploy', 'styles:deploy', 'images']);
+gulp.task('deploy', ['scripts:deploy', 'styles:deploy', 'images', 'sprites']);
