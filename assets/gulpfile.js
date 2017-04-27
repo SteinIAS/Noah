@@ -140,7 +140,7 @@ gulp.task('default', ['scripts:dev', 'styles:dev', 'sprites'], function () {
 	if(proxy !== '') {
 		settings.proxy = proxy;
 	} else {
-		settings.server = '../site';
+		settings.server = paths.assets.html;
 	}
 	browserSync.init([paths.output.js + '**/*.js'], settings);
 
