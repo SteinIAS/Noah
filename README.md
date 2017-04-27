@@ -13,7 +13,7 @@ Stein IAS' Web Development Template
 
 ## Let's develop
 - Run `gulp` to watch for changes to project files and initialise a browser-sync server
-- Run 'gulp sprites' if you want to manually check if you have SVGs in your img folder and run svg to sprite task
+- Run `gulp sprites` if you want to manually check if you have SVGs in your img folder and run svg to sprite task
 - Run `gulp deploy` if you're transferring the site files to a server to run concatentation and minification tasks
 
 
