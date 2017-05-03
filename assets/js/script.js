@@ -1,5 +1,8 @@
 // Default Ready Function
-$(function() {
-	"use strict";
-	var Noah = Noah || {};
+var Noah = (function(){
+	// Forces Correct Operating Context >= ES2015
+    "use strict";
+    $(function() {
+
+	});
 });
