@@ -17,15 +17,16 @@ $weight-light: 100;
 $weight-regular: 400;
 $weight-bold: 600;
 
-/* BASE FONTS
+/* FALLBACK FONT
 ------------------------------------------ */
 $fallback: Arial, "Helvetica Neue", Helvetica, sans-serif;
 
-$base-font-family: Cambria, Georgia, serif, $fallback;
+/* BASE FONTS
+------------------------------------------ */
+$base-font-family: $fallback;
 $base-font-weight: $weight-regular;
 $base-font-size: 1em;
 $base-line-height: 1.4;
-
 
 /* HEADER FONTS
 ------------------------------------------ */
