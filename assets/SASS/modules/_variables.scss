@@ -1,5 +1,7 @@
 /* COLOURS - http://chir.ag/projects/name-that-color/
 ------------------------------------------ */
+$col-black: #000000;
+$col-white: #ffffff;
 
 $col-mine-shaft: #333333;
 $col-red-damask: #d8544b;
@@ -8,6 +10,7 @@ $col-sunglo: #e2766f;
 $col-standard: $col-mine-shaft;
 $col-link: $col-red-damask;
 $col-link-hover: $col-sunglo;
+
 
 
 /* WEIGHTS
@@ -31,6 +34,5 @@ $base-line-height: 1.4;
 ------------------------------------------ */
 
 $header-font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	
-	
-	
+
+
