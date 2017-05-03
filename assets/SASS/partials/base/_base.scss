@@ -1,13 +1,13 @@
 *, *:before, *:after {
-	-moz-box-sizing: border-box; 
-		-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
 			box-sizing: border-box;
 }
 
-html { 
-	font-size: 100%; 
-	-webkit-text-size-adjust: 100%; 
-	-ms-text-size-adjust: 100%; 
+html {
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
 }
 
 body {
@@ -15,7 +15,7 @@ body {
 	font-family: $base-font-family;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
-	margin: 0;	
+	margin: 0;
 }
 
 .container {
@@ -39,7 +39,6 @@ body {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: $header-font-family;
-	margin:1em 0 0.35em 0;
 }
 
 h1, .h1 {
@@ -93,7 +92,7 @@ p {
 img, object, embed {
 	height: auto;
 	max-width: 100%;
-}	
+}
 
 
 /* LINKS
@@ -103,6 +102,7 @@ a {
 	color: $col-link;
 	cursor: pointer;
 	text-decoration:none;
+	transition: color 0.3s ease;
 	outline: 0;
 	&:visited {
 
@@ -111,10 +111,10 @@ a {
 		color: $col-link-hover;
 	}
 	&:active {
-		
+
 	}
 	&:focus {
-		
+
 	}
 	/* Improve readability when focused and hovered in all browsers: h5bp.com/h */
 	&:focus,
