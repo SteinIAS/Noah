@@ -5,4 +5,4 @@ var Noah = (function(){
     $(function() {
 
 	});
-});
+})();
