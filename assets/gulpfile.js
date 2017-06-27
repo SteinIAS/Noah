@@ -151,7 +151,7 @@ gulp.task('default', ['scripts:dev', 'styles:dev', 'sprites'], function () {
 	// Watch .scss files
 	gulp.watch(paths.assets.css + '/**/*.scss', ['styles:dev']);
 	// Watch .html files
-	gulp.watch(paths.assets.html + '**/*.{php,html,cshtml}', ['templates']);
+	gulp.watch(paths.assets.html + 'views/*.{php,html,cshtml}', ['templates']);
 
 });
 
