@@ -8,3 +8,5 @@ assets/bower_components/
 !*/css/vendor/
 */scripts/*
 !*/scripts/vendor/
+
+site/img/svgsprite/
