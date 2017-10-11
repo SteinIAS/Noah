@@ -4,10 +4,6 @@ var Noah = (function(){
     "use strict";
     $(function() {
 
-    	let whatever = 'name';
-
-    	const whateevr = `My name is ${whatever}`;
-
 	});
 
 })();
