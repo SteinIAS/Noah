@@ -13,6 +13,7 @@ var notify = require('gulp-notify');
 var svgSymbols = require('gulp-svg-symbols');
 var browserify = require('browserify');
 var babelify = require('babelify');
+var glob = require("glob")
 
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream'); 
@@ -29,6 +30,8 @@ var paths = {
 		img: '../site/img/'
 	}
 };
+
+var JSfiles = glob.sync(paths.assets.js + '*.js');
 
 // If you are running the site with a different webserver change this to the URL of the site e.g. localhost:8888
 var proxy = '';
@@ -86,7 +89,8 @@ gulp.task('styles:deploy', function () {
 });
 
 gulp.task('scripts:lint', function() {
-	return gulp.src([paths.assets.js + 'script.js', paths.assets.js + '**/*.js'])
+
+	return gulp.src(JSfiles)
 		.pipe(jshint())
     	.pipe(jshint.reporter('jshint-stylish'))
     	.pipe(notify(function (file) {
@@ -105,9 +109,10 @@ gulp.task('scripts:lint', function() {
 });
 
 gulp.task('scripts:bundle', function () {
+
   // set up the browserify instance on a task basis
   var b = browserify({
-    entries: paths.assets.js + 'script.js',
+    entries: JSfiles,
     debug: true
   });
 
@@ -132,7 +137,7 @@ gulp.task('scripts:bundle', function () {
 gulp.task('scripts:deploy', function() {
   // set up the browserify instance on a task basis
   var b = browserify({
-    entries: paths.assets.js + 'script.js'
+    entries: [paths.assets.js + 'script.js', paths.assets.js + 'plugins.js']
   });
 
   return b.transform(babelify, { presets: ['env'], plugins: [] })

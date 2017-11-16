@@ -6,6 +6,7 @@
     "babelify": "^7.3.0",
     "browser-sync": "^2.7.12",
     "browserify": "^14.3.0",
+    "glob": "^7.1.2",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-clean-css": "^2.2.2",
