@@ -8,13 +8,13 @@ Stein IAS' Web Development Template
 ## Set up
 - Need to ensure you have everything on your machine
 - Install [node](https://nodejs.org/download/) and ensure npm is in your system path
-- Run `npm install --global gulp`
 - Run `npm install` to install everything (might need sudo)
 
 ## Let's develop
-- Run `gulp` to watch for changes to project files and initialise a browser-sync server
-- Run `gulp sprites` if you want to manually check if you have SVGs in your img folder and run svg to sprite task
-- Run `gulp deploy` if you're transferring the site files to a server to run concatentation and minification tasks
+- Run `npm run watch` to watch for changes to project files and initialise a browser-sync server
+- Run `npm run optimize` to move imgs from the assets/img folder to your site/img folder, don't put imgs straight into the site/img folder and these will not get optimized 
+- Run `npm run dev/watch/prod` if you want to compile your SVG files into SVG symbols. If you add a new SVG file, you will need to restart the npm command to pick up the change
+- Run `npm run prod` if you're transferring the site files to a server to run concatentation and minification tasks
 
 
 ## What SASS goes where?
@@ -32,7 +32,7 @@ To help assist with the BE implementation we can rename the folders to match the
 ## FAQ's
 
 - I need to run PHP/C# etc / I already have the site running and don't need a new browser sync server?
-    + We can tell browser sync about our site by updating the proxy variable on line :29 of gulpfile.js, this should equal the URL of the site you have running e.g. localhost:8888
+    + We can tell browser sync about our site by either updating the webpack.mix.js file or running npm run watch --env-proxy localhost:{portnumber} e.g. localhost:25812
 - I've added some css/scripts to the folder but it's not showing up in Git or other people?
     + By default all assets below `/css` or `/scripts` are ignored so that they don't show up as changes when updating source files. To solve this any libraries needed should go in a subdirectory called vendor e.g. `/css/vendor/myLibrary.css` or `/scripts/vendor/jquery.min.js`
 
