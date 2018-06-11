@@ -18,7 +18,7 @@ const paths = {
 };
 
 // If you are running the site with a different webserver change this to the URL of the site e.g. localhost:8888
-const proxy = '';
+const proxy = (argv.env && argv.env.proxy) ? argv.env.proxy : 'localhost:8888';
 let rules = [{
     test: /\.scss/,
     use: 'import-glob-loader'
@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === 'optimize') {
     plugins.push(new ImageminPlugin({
         externalImages: {
             sources: glob.sync(paths.assets.img + '*.{png,svg,jpg,gif,jpeg,webp}'),
-            destination: '../' + paths.output.img.replace("/img", "") +'/'
+            destination: '../' + paths.output.img.replace("/img", "") + '/'
         },
         disable: false,
         pngquant: {
@@ -43,12 +43,12 @@ if (process.env.NODE_ENV === 'optimize') {
         },
         svgo: {
             plugins: [
-                {removeTitles: false},
-                {inlineStyles: {onlyMatchedOnce:false}},
+                { removeTitles: false },
+                { inlineStyles: { onlyMatchedOnce: false } },
             ]
         }
     }));
-}else{
+} else {
     plugins.push(new SVGSpritemapPlugin({
         src: '../' + paths.output.img + '/*.svg',
         filename: paths.output.img + '/svg-symbols/svg-symbols.svg',

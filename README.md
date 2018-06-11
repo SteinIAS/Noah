@@ -13,7 +13,7 @@ Stein IAS' Web Development Template
 ## Let's develop
 - Run `npm run watch` to watch for changes to project files and initialise a browser-sync server
 - Run `npm run optimize` to move imgs from the assets/img folder to your site/img folder, don't put imgs straight into the site/img folder and these will not get optimized 
-- Run `npm run dev/watch/prod` if you want to compile your SVG files into SVG symbols. If you add a new SVG file, you will need to restart the npm command to pick up the change
+- Run `npm run dev/watch/prod` if you want to compile your SVG files into SVG symbols. If you add a new SVG file, you will need to restart the npm command to pick up the change, remember to put the svg in the assets/img folder so that it gets optimized
 - Run `npm run prod` if you're transferring the site files to a server to run concatentation and minification tasks
 
 
@@ -32,7 +32,7 @@ To help assist with the BE implementation we can rename the folders to match the
 ## FAQ's
 
 - I need to run PHP/C# etc / I already have the site running and don't need a new browser sync server?
-    + We can tell browser sync about our site by either updating the webpack.mix.js file or running npm run watch --env-proxy localhost:{portnumber} e.g. localhost:25812
+    + We can tell browser sync about our site by either updating the webpack.mix.js file or running npm run watch -- --env-proxy localhost:{portnumber} e.g. localhost:25812
 - I've added some css/scripts to the folder but it's not showing up in Git or other people?
     + By default all assets below `/css` or `/scripts` are ignored so that they don't show up as changes when updating source files. To solve this any libraries needed should go in a subdirectory called vendor e.g. `/css/vendor/myLibrary.css` or `/scripts/vendor/jquery.min.js`
 
