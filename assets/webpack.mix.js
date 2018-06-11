@@ -2,6 +2,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const mix = require('laravel-mix');
 const glob = require('glob');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
+const argv = require('minimist')(process.argv.slice(2));
 
 const paths = {
     assets: {
