@@ -64,9 +64,13 @@ mix
             rules: rules
         },
         plugins: plugins
-    })
-    .sass(paths.assets.css + 'style.scss', paths.output.css)
-    .js(paths.assets.js + 'script.js', paths.output.js);
+    });
+
+if (process.env.NODE_ENV !== 'optimize') {
+    mix.sass(paths.assets.css + 'style.scss', paths.output.css)
+        .js(paths.assets.js + 'script.js', paths.output.js);
+}
+
 
 
 if (process.env.NODE_ENV === 'development') {
