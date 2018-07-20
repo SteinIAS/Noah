@@ -20,11 +20,11 @@ const paths = {
 
 // If you are running the site with a different webserver change this to the URL of the site e.g. localhost:8888
 const proxy = (argv.env && argv.env.proxy) ? argv.env.proxy : 'localhost:8888';
-let rules = [{
+const rules = [{
     test: /\.scss/,
     use: 'import-glob-loader'
 }];
-let plugins = [];
+const plugins = [];
 if (process.env.NODE_ENV === 'development') {
     rules.push({
         test: /\.(js|vue)/,
@@ -35,8 +35,8 @@ if (process.env.NODE_ENV === 'development') {
 if (process.env.NODE_ENV === 'optimize') {
     plugins.push(new ImageminPlugin({
         externalImages: {
-            sources: glob.sync(paths.assets.img + '*.{png,svg,jpg,gif,jpeg,webp}'),
-            destination: '../' + paths.output.img.replace("/img", "") + '/'
+            sources: glob.sync(`${paths.assets.img}*.{png,svg,jpg,gif,jpeg,webp}`),
+            destination: `../${paths.output.img.replace('/img', '')}/`
         },
         disable: false,
         pngquant: {
@@ -51,8 +51,8 @@ if (process.env.NODE_ENV === 'optimize') {
     }));
 } else {
     plugins.push(new SVGSpritemapPlugin({
-        src: '../' + paths.output.img + '/*.svg',
-        filename: paths.output.img + '/svg-symbols/svg-symbols.svg',
+        src: `../${paths.output.img}/*.svg`,
+        filename: `${paths.output.img}/svg-symbols/svg-symbols.svg`,
         prefix: '',
         svgo: false
     }));
@@ -61,26 +61,25 @@ mix
     .setPublicPath('../')
     .webpackConfig({
         module: {
-            rules: rules
+            rules
         },
-        plugins: plugins
+        plugins
     });
 
 if (process.env.NODE_ENV !== 'optimize') {
-    mix.sass(paths.assets.css + 'style.scss', paths.output.css)
-        .js(paths.assets.js + 'script.js', paths.output.js);
+    mix.sass(`${paths.assets.css}style.scss`, paths.output.css).options({ processCssUrls: false })
+        .js(`${paths.assets.js}script.js`, paths.output.js);
 }
-
 
 
 if (process.env.NODE_ENV === 'development') {
     mix.browserSync({
-        proxy: proxy,
+        proxy,
         files: [
-            '../' + paths.output.css + '/style.css',
-            '../' + paths.output.js + '/script.js',
-            '../' + paths.assets.html + 'Views/*.{php,html,cshtml}',
-            '../' + paths.assets.html + 'index.{php,html,cshtml}'
+            `../${paths.output.css}/style.css`,
+            `../${paths.output.js}/script.js`,
+            `../${paths.assets.html}Views/*.{php,html,cshtml}`,
+            `../${paths.assets.html}index.{php,html,cshtml}`
         ]
     });
 }
