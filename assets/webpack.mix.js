@@ -78,7 +78,7 @@ if (process.env.NODE_ENV === 'development') {
         files: [
             `../${paths.output.css}/style.css`,
             `../${paths.output.js}/script.js`,
-            `../${paths.assets.html}Views/*.{php,html,cshtml}`,
+            `../${paths.assets.html}Views/**/*.{php,html,cshtml}`,
             `../${paths.assets.html}index.{php,html,cshtml}`
         ]
     });
