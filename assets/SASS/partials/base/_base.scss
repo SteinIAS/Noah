@@ -105,23 +105,8 @@ a {
 	cursor: pointer;
 	text-decoration:none;
 	transition: color 0.3s ease;
-	outline: 0;
-	&:visited {
-
-	}
 	&:hover {
 		color: $col-link-hover;
-	}
-	&:active {
-
-	}
-	&:focus {
-
-	}
-	/* Improve readability when focused and hovered in all browsers: h5bp.com/h */
-	&:focus,
-	&:active {
-		outline: none;
 	}
 }
 
