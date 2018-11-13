@@ -10,3 +10,4 @@ assets/bower_components/
 !*/scripts/vendor/
 
 site/img/svgsprite/
+mix-manifest.json
