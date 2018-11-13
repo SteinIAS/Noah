@@ -1,3 +1,4 @@
+const resolve = require('path').resolve;
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const mix = require('laravel-mix');
 const glob = require('glob');
@@ -34,6 +35,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 if (process.env.NODE_ENV === 'optimize') {
     plugins.push(new ImageminPlugin({
+        cacheFolder: resolve(`./${paths.assets.img}cache`),
         externalImages: {
             sources: glob.sync(`${paths.assets.img}*.{png,svg,jpg,gif,jpeg,webp}`),
             destination: `../${paths.output.img.replace('/img', '')}/`
