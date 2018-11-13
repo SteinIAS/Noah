@@ -10,4 +10,5 @@ assets/bower_components/
 !*/scripts/vendor/
 
 site/img/svgsprite/
+site/img/
 mix-manifest.json
