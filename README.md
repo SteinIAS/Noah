@@ -13,6 +13,7 @@ Stein IAS' Web Development Template
 ## Let's develop
 - Run `npm run watch` to watch for changes to project files and initialise a browser-sync server
 - Run `npm run optimize` to move imgs from the assets/img folder to your site/img folder, don't put imgs straight into the site/img folder and these will not get optimized 
+- Only images put inside assets/img/symbols will be compiled into the svg-symbols file 
 - Run `npm run dev/watch/prod` if you want to compile your SVG files into SVG symbols. If you add a new SVG file, you will need to restart the npm command to pick up the change, remember to put the svg in the assets/img folder so that it gets optimized
 - Run `npm run prod` if you're transferring the site files to a server to run concatentation and minification tasks
 
