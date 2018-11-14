@@ -29,7 +29,7 @@
     "optimize": "npm run optimizeImgs && npm run compileSvgs",
     "optimizeImgs": "cross-env NODE_ENV=optimizeImgs node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "compileSvgs": "cross-env NODE_ENV=compileSvgs node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run optimizeImgs && npm run production",
+    "prod": "npm run optimize && npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   }
 }

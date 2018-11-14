@@ -51,7 +51,7 @@ if (process.env.NODE_ENV === 'optimizeImgs') {
             ]
         }
     }));
-} else {
+} else if (process.env.NODE_ENV === 'compileSvgs') {
     plugins.push(new SVGSpritemapPlugin({
         src: `../${paths.output.img}/symbols/*.svg`,
         filename: `${paths.output.img}/svg-symbols/svg-symbols.svg`,
