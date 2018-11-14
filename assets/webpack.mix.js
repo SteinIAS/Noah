@@ -33,11 +33,10 @@ if (process.env.NODE_ENV === 'development') {
         use: 'eslint-loader'
     });
 }
-if (process.env.NODE_ENV === 'optimize') {
+if (process.env.NODE_ENV === 'optimizeImgs') {
     plugins.push(new ImageminPlugin({
-        cacheFolder: resolve(`./${paths.assets.img}cache`),
         externalImages: {
-            sources: glob.sync(`${paths.assets.img}*.{png,svg,jpg,gif,jpeg,webp}`),
+            sources: glob.sync(`${paths.assets.img}**/*.{png,svg,jpg,gif,jpeg,webp}`, { ignore: `${paths.assets.img}cache/*.{png,svg,jpg,gif,jpeg,webp}` }),
             destination: `../${paths.output.img.replace('/img', '')}/`
         },
         disable: false,
@@ -53,7 +52,7 @@ if (process.env.NODE_ENV === 'optimize') {
     }));
 } else {
     plugins.push(new SVGSpritemapPlugin({
-        src: `../${paths.output.img}/*.svg`,
+        src: `../${paths.output.img}/symbols/*.svg`,
         filename: `${paths.output.img}/svg-symbols/svg-symbols.svg`,
         prefix: '',
         svgo: false
@@ -68,7 +67,9 @@ mix
         plugins
     });
 
-if (process.env.NODE_ENV !== 'optimize') {
+
+const disallowEnvs = ['optimizeImgs', 'compileSvgs'];
+if (disallowEnvs.indexOf(process.env.NODE_ENV) < 0) {
     mix.sass(`${paths.assets.css}style.scss`, paths.output.css).options({ processCssUrls: false })
         .js(`${paths.assets.js}script.js`, paths.output.js);
 }
@@ -85,11 +86,3 @@ if (process.env.NODE_ENV === 'development') {
         ]
     });
 }
-// gulp.task('sprites', function() {
-// 	return gulp.src(paths.output.img + '*.svg').pipe(svgSymbols({
-// 		templates: ['default-svg'],
-// 		svgClassname: 'svg-icon-lib'
-// 	})).pipe(gulp.dest(paths.output.img + '/svgsprite/'));
-// });
-
-//     gulp.watch(paths.output.img + '*.svg', ['sprites']);

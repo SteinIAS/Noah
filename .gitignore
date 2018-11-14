@@ -10,5 +10,6 @@ assets/bower_components/
 !*/scripts/vendor/
 
 site/img/svgsprite/
-site/img/
+site/img/*
+!.gitkeep
 mix-manifest.json

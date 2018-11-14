@@ -1,6 +1,6 @@
 {
   "name": "Noah",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "devDependencies": {
     "browser-sync": "^2.26.3",
     "browser-sync-webpack-plugin": "^1.2.0",
@@ -26,8 +26,10 @@
     "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "optimize": "cross-env NODE_ENV=optimize node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run optimize && npm run production",
+    "optimize": "npm run optimizeImgs && npm run compileSvgs",
+    "optimizeImgs": "cross-env NODE_ENV=optimizeImgs node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "compileSvgs": "cross-env NODE_ENV=compileSvgs node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run optimizeImgs && npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   }
 }
