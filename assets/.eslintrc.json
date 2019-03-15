@@ -1,8 +1,14 @@
 {
     "extends": [
         "airbnb",
-        "plugin:vue/recommended"
+        "plugin:vue/recommended",
+        "prettier",
+        "prettier/react",
+        "prettier/vue"
     ],
+    "parserOptions": {
+        "ecmaVersion": 2017
+    },
     "env": {
         "browser": true,
         "commonjs": true,
@@ -34,6 +40,7 @@
                 "SwitchCase": 4
             }
         ],
+        "no-tabs": 0,
         "func-names": [
             "error",
             "as-needed"
@@ -66,17 +73,6 @@
             },
             {
                 "enforceForRenamedProperties": false
-            }
-        ],
-        "vue/html-indent": 4,
-        "vue/max-attributes-per-line": [
-            2,
-            {
-                "singleline": 3,
-                "multiline": {
-                    "max": 1,
-                    "allowFirstLine": true
-                }
             }
         ]
     }
