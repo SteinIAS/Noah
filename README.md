@@ -48,7 +48,7 @@ PurgeCSS is only ran on production, so ensure that your site still works when tr
 Why do we use PurgeCSS?
 Tailwind includes a lot of bloat by default so we need to remove anything that isn't being used.
 CSS file size before purge -> 414KB
-After purge for this default template although -> 3KB
+After purge for this default template -> 3KB
 
 ## FAQ's
 
