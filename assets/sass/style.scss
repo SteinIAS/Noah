@@ -4,14 +4,19 @@
 @import "modules/_functions";
 @import "modules/_mixins";
 
-
 /* BASE PARTIALS
 ------------------------------------------ */
+
+@tailwind preflight;
+
+@tailwind components;
+
 @import "partials/base/_vendor";
 @import "partials/base/_reset";
 @import "partials/base/_base";
 @import "partials/base/_buttons";
 @import "partials/base/_forms";
-@import "partials/base/_grid";
 
 @import "partials/components/**/*";
+
+@tailwind utilities;

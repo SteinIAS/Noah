@@ -1,151 +1,112 @@
 *, *:before, *:after {
-	-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-			box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-	font-size: 100%;
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
 body {
-	color: $col-standard;
-	font-family: $base-font-family;
-	font-size: $base-font-size;
-	line-height: $base-line-height;
-	margin: 0;
+    color: $col-standard;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    margin: 0;
 }
-
-.container {
-	margin: 0 auto;
-	width: 96%;
-	@include breakpoint(large) {
-		max-width: 73.125em;
-		margin: 0 auto;
-		width: 100%;
-	}
-}
-
-.row {
-	overflow: hidden;
-}
-
 
 /* BASE ELEMENTS
 ------------------------------------------ */
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-	font-family: $header-font-family;
-	font-weight: bold;
-	margin-bottom: 1em;
+    font-family: $header-font-family;
+    font-weight: bold;
+    margin-bottom: 1em;
 }
 
 h1, .h1 {
-	font-size: 2em;
+    font-size: 2em;
 }
 
 h2, .h2 {
-	font-size: 1.75em;
+    font-size: 1.75em;
 }
 
 h3, .h3 {
-	font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 h4, .h4 {
-	font-size: 1.4em;
+    font-size: 1.4em;
 }
 
 h5, .h5 {
-	font-size: 1.3em;
+    font-size: 1.3em;
 }
 
 h6, .h6 {
-	font-size: 1.2em;
+    font-size: 1.2em;
 }
 
 small {
-	font-size: 0.85em;
+    font-size: 0.85em;
 }
 
 ul li {
-	list-style: none;
+    list-style: none;
 }
 
 ol li {
-	list-style: none;
+    list-style: none;
 }
 
 strong, b {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 em, i {
-	font-style: italic;
+    font-style: italic;
 }
 
 p {
-	margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 img, object, embed {
-	height: auto;
-	max-width: 100%;
+    height: auto;
+    max-width: 100%;
 }
-
 
 /* LINKS
 ------------------------------------------ */
 
 a {
-	color: $col-link;
-	cursor: pointer;
-	text-decoration:none;
-	transition: color 0.3s ease;
-	&:hover {
-		color: $col-link-hover;
-	}
+    color: $col-link;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: $col-link-hover;
+    }
 }
 
-
-/* BUILD ELEMENTS
------------------------------------------- */
-
-.hide {
-	display: none;
+p, a {
+    word-break: break-word;
 }
 
-.center-align {
-	text-align: center;
+button > * {
+    pointer-events: none;
 }
 
-/**
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    contenteditable attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that are clearfixed.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-.cf:before,
-.cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
+// IE fix for flex children
 
-.cf:after {
-    clear: both;
+[class*="flex"] {
+    & > * {
+        flex: 0 1 auto;
+    }
 }
-
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.cf {
-    *zoom: 1;
-}
-
