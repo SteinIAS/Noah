@@ -23,7 +23,7 @@
     "purgecss-webpack-plugin": "^1.5.0",
     "svg-spritemap-webpack-plugin": "^1.2.0",
     "svgo": "^1.1.1",
-    "tailwindcss": "^0.7.4",
+    "tailwindcss": "^1.0.1",
     "webpack": "^3.12.0"
   },
   "scripts": {

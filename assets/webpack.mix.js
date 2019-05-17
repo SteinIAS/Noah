@@ -110,7 +110,7 @@ if (disallowEnvs.indexOf(process.env.NODE_ENV) < 0) {
 		.sass(`${paths.assets.css}style.scss`, paths.output.css)
 		.options({
 			processCssUrls: false,
-			postCss: [tailwindcss('./tailwind.js')]
+			postCss: [tailwindcss('./tailwind.config.js')]
 		})
 		.js(`${paths.assets.js}script.js`, paths.output.js);
 }
