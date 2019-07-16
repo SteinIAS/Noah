@@ -5,8 +5,6 @@
 - Live: 
 ___
 
-# Noah
-
 Stein IAS' Web Development Template
 
 ## Set up
