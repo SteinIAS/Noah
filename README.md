@@ -1,4 +1,9 @@
-![Noah](https://s4.postimg.org/7xnyqg9m5/Noahs-_Ark.jpg)
+---
+# Noah
+- Type: **Template**
+- Staging: 
+- Live: 
+---
 
 # Noah
 
@@ -57,5 +62,3 @@ Tailwind includes a lot of bloat by default so we need to remove anything that i
     -   We can tell browser sync about our site by either updating the webpack.mix.js file or running npm run watch -- --env-proxy localhost:{portnumber} e.g. localhost:25812
 -   I've added some css/scripts to the folder but it's not showing up in Git or other people?
     -   By default all assets below `/css` or `/scripts` are ignored so that they don't show up as changes when updating source files. To solve this any libraries needed should go in a subdirectory called vendor e.g. `/css/vendor/myLibrary.css` or `/scripts/vendor/jquery.min.js`
-
-## To do list
