@@ -7,6 +7,7 @@ const argv = require('minimist')(process.argv.slice(2));
 const tailwindcss = require('tailwindcss');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const globAll = require('glob-all');
+const path = require('path');
 
 const paths = {
 	assets: {
@@ -38,11 +39,11 @@ const rules = [
 ];
 const plugins = [];
 if (process.env.NODE_ENV === 'development') {
-	rules.push({
-		test: /\.(js|vue)/,
-		exclude: /node_modules/,
-		use: 'eslint-loader'
-	});
+	// rules.push({
+	// 	test: /\.(js|vue)/,
+	// 	exclude: /node_modules/,
+	// 	use: 'eslint-loader'
+	// });
 }
 if (process.env.NODE_ENV === 'optimizeImgs') {
 	plugins.push(
@@ -65,11 +66,14 @@ if (process.env.NODE_ENV === 'optimizeImgs') {
 	);
 } else if (process.env.NODE_ENV === 'compileSvgs') {
 	plugins.push(
-		new SVGSpritemapPlugin({
-			src: `../${paths.output.img}/symbols/*.svg`,
-			filename: `${paths.output.img}/svg-symbols/svg-symbols.svg`,
-			prefix: '',
-			svgo: false
+		new SVGSpritemapPlugin(`../${paths.output.img}/symbols/*.svg`, {
+			output: {
+				filename: `${paths.output.img}/svg-symbols/svg-symbols.svg`,
+				svgo: false
+			},
+			sprite: {
+				prefix: false,
+			}
 		})
 	);
 }
@@ -112,7 +116,7 @@ if (disallowEnvs.indexOf(process.env.NODE_ENV) < 0) {
 			processCssUrls: false,
 			postCss: [tailwindcss('./tailwind.config.js')]
 		})
-		.js(`${paths.assets.js}script.js`, paths.output.js);
+		.js([`${paths.assets.js}plugins.js`, `${paths.assets.js}script.js`], `${paths.output.js}/script.js`);
 }
 
 if (process.env.NODE_ENV === 'development') {
