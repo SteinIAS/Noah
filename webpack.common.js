@@ -8,6 +8,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
         }),
+        new HtmlWebpackPlugin({
+            filename: 'views/example.html',
+            template: './src/views/example.html',
+        }),
     ],
     output: {
         filename: 'script/[name].bundle.js',
