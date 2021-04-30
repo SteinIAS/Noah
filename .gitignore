@@ -9,7 +9,7 @@ assets/bower_components/
 */scripts/*
 !*/scripts/vendor/
 
-site/img/svgsprite/
-site/img/*
+dist/
 !.gitkeep
-mix-manifest.json
+node_modules/*
+img/cache/*
