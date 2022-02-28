@@ -72,31 +72,8 @@ if (process.env.NODE_ENV === 'optimizeImgs') {
 				svgo: false
 			},
 			sprite: {
-				prefix: false,
+				prefix: false
 			}
-		})
-	);
-}
-
-if (process.env.NODE_ENV === 'production') {
-	plugins.push(
-		new PurgecssPlugin({
-			// Specify the locations of any files you want to scan for class names.
-			paths: globAll.sync([
-				path.join(__dirname, `../${paths.assets.html}**/*.php`),
-				path.join(__dirname, `../${paths.assets.html}**/*.html`)
-			]),
-			extractors: [
-				{
-					extractor: TailwindExtractor,
-
-					// Specify the file extensions to include when scanning for
-					// class names.
-					extensions: ['html', 'js', 'php', 'vue']
-				}
-			],
-			whitelistPatterns: [/^pa-/],
-			whitelistPatternsChildren: []
 		})
 	);
 }
@@ -110,13 +87,15 @@ mix.setPublicPath('../').webpackConfig({
 
 const disallowEnvs = ['optimizeImgs', 'compileSvgs'];
 if (disallowEnvs.indexOf(process.env.NODE_ENV) < 0) {
-	mix
-		.sass(`${paths.assets.css}style.scss`, paths.output.css)
+	mix.sass(`${paths.assets.css}style.scss`, paths.output.css)
 		.options({
 			processCssUrls: false,
 			postCss: [tailwindcss('./tailwind.config.js')]
 		})
-		.js([`${paths.assets.js}plugins.js`, `${paths.assets.js}script.js`], `${paths.output.js}/script.js`);
+		.js(
+			[`${paths.assets.js}plugins.js`, `${paths.assets.js}script.js`],
+			`${paths.output.js}/script.js`
+		);
 }
 
 if (process.env.NODE_ENV === 'development') {
