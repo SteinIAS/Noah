@@ -62,6 +62,11 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    alias: {
+      styles: path.resolve(__dirname, 'src/scss/')
+    }
+  },
   stats: {
     warnings: false,
     errorDetails: true
