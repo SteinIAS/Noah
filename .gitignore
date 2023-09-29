@@ -1,15 +1,2 @@
-/assets/node_modules
-/assets/node_modules/*
-
-/assets/.sass-cache
-/assets/.sass-cache/*
-assets/bower_components/
-*/css/*
-!*/css/vendor/
-*/scripts/*
-!*/scripts/vendor/
-
-site/img/svgsprite/
-site/img/*
-!.gitkeep
-mix-manifest.json
+/node_modules
+/dist
