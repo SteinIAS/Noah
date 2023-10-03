@@ -15,9 +15,16 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      filename: 'index.html',
       minify: false,
       inject: 'body'
     })
+    // new HtmlWebpackPlugin({
+    //   template: './src/example.html',
+    //   filename: 'example.html',
+    //   minify: false,
+    //   inject: 'body'
+    // })
   ],
   devServer: {
     static: path.resolve(__dirname, 'dist'),
