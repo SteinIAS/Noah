@@ -60,12 +60,30 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
         type: 'asset/resource',
-        generator: { filename: './img/[name][ext]' }
+        generator: {
+          filename: (pathData) => {
+            const filepath = path
+              .dirname(pathData.filename)
+              .split('/')
+              .slice(1)
+              .join('/');
+            return `${filepath}/[name][ext]`;
+          }
+        }
       },
       {
         test: /\.(woff|woff2)$/i,
         type: 'asset/resource',
-        generator: { filename: './fonts/[name][ext]' }
+        generator: {
+          filename: (pathData) => {
+            const filepath = path
+              .dirname(pathData.filename)
+              .split('/')
+              .slice(1)
+              .join('/');
+            return `${filepath}/[name][ext]`;
+          }
+        }
       }
     ]
   },
