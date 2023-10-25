@@ -14,3 +14,4 @@ site/img/*
 !.gitkeep
 mix-manifest.json
 /node_modules
+/dist
