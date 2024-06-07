@@ -1,6 +1,19 @@
 const path = require('path');
+const fs = require('fs');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const allFiles = fs.readdirSync(path.resolve(__dirname, 'src'));
+const htmlPages = allFiles
+  .filter((file) => file.endsWith('.html'))
+  .map((file) => {
+    return new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src', file),
+      filename: file,
+      minify: false,
+      inject: 'body'
+    });
+  });
 
 module.exports = {
   //   mode: 'development',
@@ -13,18 +26,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/style.min.css'
     }),
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      filename: 'index.html',
-      minify: false,
-      inject: 'body'
-    })
-    // new HtmlWebpackPlugin({
-    //   template: './src/example.html',
-    //   filename: 'example.html',
-    //   minify: false,
-    //   inject: 'body'
-    // })
+    ...htmlPages
   ],
   devServer: {
     static: path.resolve(__dirname, 'dist'),
@@ -60,6 +62,7 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
         type: 'asset/resource',
+        // generator: { filename: './img/[name][ext]' }, // Use this line to copy all image files without checking the usage in htmls and comment the below generator
         generator: {
           filename: (pathData) => {
             const filepath = path
@@ -74,16 +77,7 @@ module.exports = {
       {
         test: /\.(woff|woff2)$/i,
         type: 'asset/resource',
-        generator: {
-          filename: (pathData) => {
-            const filepath = path
-              .dirname(pathData.filename)
-              .split('/')
-              .slice(1)
-              .join('/');
-            return `${filepath}/[name][ext]`;
-          }
-        }
+        generator: { filename: './fonts/[name][ext]' }
       }
     ]
   },
